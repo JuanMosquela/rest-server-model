@@ -17,6 +17,6 @@ app.use(cors())
 app.use('/api/usuario', router)
 
 
-app.listen( PORT, ()  => {
-    console.log(`El servidor esta corriendo en el puerto ${PORT}`)
+app.listen( process.env.PORT || 8080, ()  => {
+    console.log(`El servidor esta corriendo en el puerto ${process.env.PORT || 8080}`)
 })
