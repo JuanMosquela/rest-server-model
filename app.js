@@ -1,22 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const router = require('./routes/user');
-const { dbConnection } = require('./db/config');
-const app = express()
 require('dotenv').config();
-
-const PORT = 8080
-
-dbConnection()
-
-app.use(express.json())
-app.use(express.static('public'))
-app.use(cors())
+const Server = require('./models/server');
 
 
-app.use('/api/usuario', router)
+const server = new Server();
 
 
-app.listen( process.env.PORT || 8080, ()  => {
-    console.log(`El servidor esta corriendo en el puerto ${process.env.PORT || 8080}`)
-})
+
+server.listen();
